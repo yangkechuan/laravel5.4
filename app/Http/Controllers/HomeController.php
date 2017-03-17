@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\models\ApiLog;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -21,8 +22,11 @@ class HomeController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('home');
+        $from = $request->header('referer');
+        $apiLogCount = ApiLog::count();
+        $success = ApiLog::where('status', 1)->count() / ($apiLogCount == 0 ? 1: $apiLogCount) * 100;
+        return view('home', compact('success','header', 'from'));
     }
 }

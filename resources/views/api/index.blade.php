@@ -5,9 +5,16 @@
     <section class="content">
         <div class="row">
             <div class="col-xs-12">
-                <div class="box">
-                    <div class="box-header">API 自动化测试日志</div>
-                    <div class="box-body">
+                <div class="box box-success">
+                    <div class="box-header with-border">
+                        <div class="box-title"><h5><strong>API自动化测试日志</strong></h5></div>
+                        <div class="box-tools pull-right">
+                            <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                            </button>
+                            <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i></button>
+                        </div>
+                    </div>
+                    <div class="box-body no-padding">
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
@@ -24,7 +31,7 @@
                                     <td>{!! nl2br($log->content) !!}</td>
                                     <td>@if($log->status ==1)
                                             <span class="label label-success">通过</span>
-                                            @else
+                                        @else
                                             <span class="label label-danger">不通过</span>
                                         @endif
                                     </td>
@@ -38,6 +45,7 @@
                 </div>
             </div>
         </div>
+
     </section>
 
 @endsection
