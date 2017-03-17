@@ -11,17 +11,17 @@
                         <table id="example2" class="table table-bordered table-hover">
                             <thead>
                             <tr>
-                                <th>id</th>
-                                <th>内容</th>
-                                <th>是否通过</th>
-                                <th>记录时间</th>
+                                <th class="col-xs-1">id</th>
+                                <th class="col-xs-8">内容</th>
+                                <th class="col-xs-1">是否通过</th>
+                                <th class="col-xs-2">记录时间</th>
                             </tr>
                             </thead>
                             <tbody>
                             @foreach($logList as $log)
                                 <tr>
                                     <td>{{$log->id}}</td>
-                                    <td>{{$log->content}}</td>
+                                    <td>{!! nl2br($log->content) !!}</td>
                                     <td>@if($log->status ==1)
                                             <span class="label label-success">通过</span>
                                             @else
