@@ -28,6 +28,8 @@ class Kernel extends ConsoleKernel
         //          ->hourly();
 
         $schedule->exec('sh /data/ngx_openresty/nginx/html/ApiTest/start.sh')->hourly()->withoutOverlapping();
+        $schedule->exec('envoy run web')->everyTenMinutes()->withoutOverlapping();
+        $schedule->exec('envoy run api')->everyTenMinutes()->withoutOverlapping();
     }
 
     /**
