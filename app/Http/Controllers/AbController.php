@@ -2,19 +2,15 @@
 
 namespace App\Http\Controllers;
 
-use App\models\ApiLog;
 use Illuminate\Http\Request;
 
-class apiController extends Controller
+class AbController extends Controller
 {
-
-
 
     public function __construct()
     {
         $this->middleware('auth');
     }
-
 
     /**
      * Display a listing of the resource.
@@ -23,8 +19,7 @@ class apiController extends Controller
      */
     public function index()
     {
-        $logList = ApiLog::orderBy('created_at', 'desc')->paginate(15);
-        return view('api.index', compact('logList'));
+        return view('ab.index');
     }
 
     /**
@@ -45,7 +40,19 @@ class apiController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request,[
+            'n' => 'required',
+            'c' => 'required',
+            'url' => 'required'
+        ]);
+
+        $n = $request->input('n');
+        $c = $request->input('c');
+        $url = $request->input('url');
+//        exec("ab -n {$n} -c {$c}  {$url}", $result);
+        exec("ab -n {$n} -c {$c}  -w  {$url}", $result);
+        return view('ab.index', compact('result'));
+
     }
 
     /**

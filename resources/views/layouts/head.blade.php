@@ -27,7 +27,8 @@
 
     <!--SweetAlert-->
     <link rel="stylesheet" type="text/css" href="{{url('css/sweetalert.css')}}">
-
+    <!-- bootstrap slider -->
+    <link rel="stylesheet" href="{{url('plugins/bootstrap-slider/slider.css')}}">
     <!--jQuery-->
     <script  src="{{url('js/jquery-2.2.3.min.js')}}"></script>
     <!--Bootstrap-->
@@ -48,5 +49,8 @@
     <script src="{{url('dist/js/app.min.js')}}"></script>
     <!-- AdminLTE for demo purposes -->
     <script src="{{url('dist/js/demo.js')}}"></script>
+
+    <!-- Bootstrap slider -->
+    <script src="{{url('plugins/bootstrap-slider/bootstrap-slider.js')}}"></script>
     <title>@yield('title')</title>
 </head>
