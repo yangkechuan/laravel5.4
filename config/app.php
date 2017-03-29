@@ -184,6 +184,7 @@ return [
          */
         Barryvdh\LaravelIdeHelper\IdeHelperServiceProvider::class,      //idea提示
         Overtrue\LaravelLang\TranslationServiceProvider::class,         //多国语言包
+        Zizaco\Entrust\EntrustServiceProvider::class,                   //权限
 
     ],
 
@@ -234,6 +235,12 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+
+        /**
+         * 第三方:
+         * Entrust :权限
+         */
+        'Entrust'   => Zizaco\Entrust\EntrustFacade::class,
     ],
 
 ];

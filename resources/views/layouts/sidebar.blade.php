@@ -37,6 +37,34 @@
                 </ul>
             </li>
         </ul>
+        @if(Auth::user()->id == 1)
+            <ul class="sidebar-menu">
+                <li class="header"><h4><strong>权限管理</strong></h4></li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-user"></i><span>用户设置</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('user.index')}}"><i class="fa fa-circle-o"></i>用户列表</a></li>
+                    </ul>
+                </li>
+                <li class="treeview">
+                    <a href="#">
+                        <i class="fa fa-pie-chart"></i><span>角色设置</span>
+                        <span class="pull-right-container">
+                            <i class="fa fa-angle-left pull-right"></i>
+                        </span>
+                    </a>
+                    <ul class="treeview-menu">
+                        <li><a href="{{route('role.index')}}"><i class="fa fa-circle-o"></i>角色列表</a></li>
+                        <li><a href="{{route('role.create')}}"><i class="fa fa-circle-o"></i>添加角色</a></li>
+                    </ul>
+                </li>
+            </ul>
+        @endif
 
     </section>
     <!-- /.sidebar -->

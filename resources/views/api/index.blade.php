@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="box-body no-padding">
-                        <table id="example2" class="table table-bordered table-hover">
+                        <table id="example2" class="table table-bordered table-hover table-responsive">
                             <thead>
                             <tr>
                                 <th class="col-xs-1">id</th>

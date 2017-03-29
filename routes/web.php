@@ -20,3 +20,5 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/api/index', 'ApiController@index')->name('api.index');
 
 Route::resource('ab', 'AbController');
+Route::resource('user', 'UserController');
+Route::resource('role', 'RoleController');

@@ -15,7 +15,7 @@
                         </div>
                     </div>
                     <div class="box-body no-padding">
-                        <form method="post" action="{{route('ab.store')}}" class="form-horizontal">
+                        <form method="post" style="padding-top: 20px" action="{{route('ab.store')}}" class="form-horizontal">
                             {!! csrf_field() !!}
                             <div class="row">
                                 <div class="col-xs-8 col-xs-offset-2">
