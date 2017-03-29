@@ -31,7 +31,7 @@ class userController extends Controller
      */
     public function create()
     {
-        //
+        return view('user.create');
     }
 
     /**
@@ -40,9 +40,25 @@ class userController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
+
+
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:users',
+            'password' => 'required|min:6|confirmed',
+        ]);
+
+        $data = $request->only('name', 'email', 'password');
+
+        User::create([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'password' => bcrypt($data['password'])
+        ]);
+
+        return redirect()->route('user.index', ['store' => 1]);
     }
 
     /**
@@ -77,23 +93,21 @@ class userController extends Controller
      */
     public function update(Request $request, $id)
     {
-        $this->validate($request,[
-            'name' => 'required',
-            'email'=> 'required',
-            'password'=> 'required',
+        $this->validate($request, [
+            'name' => 'required|max:255',
+            'password' => 'required|min:6',
         ]);
+
         $name = $request->input('name');
-        $email = $request->input('email');
         $password = $request->input('password');
 
         $user = User::findOrFail($id);
-        $user->fill([
+        $user->update([
             'name'  => $name,
-            'email' => $email,
             'password' => bcrypt($password)
-        ])->save();
+        ]);
 
-        return redirect()->route('user.index', ['success' => 1]);
+        return redirect()->route('user.index', ['update' => 1]);
     }
 
     /**
@@ -104,6 +118,8 @@ class userController extends Controller
      */
     public function destroy($id)
     {
-        //
+        User::destroy($id);
+
+        return redirect()->route('user.index', ['destroy' => 1]);
     }
 }

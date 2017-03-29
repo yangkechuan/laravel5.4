@@ -49,6 +49,7 @@
                     </a>
                     <ul class="treeview-menu">
                         <li><a href="{{route('user.index')}}"><i class="fa fa-circle-o"></i>用户列表</a></li>
+                        <li><a href="{{route('user.create')}}"><i class="fa fa-circle-o"></i>新建用户</a></li>
                     </ul>
                 </li>
                 <li class="treeview">

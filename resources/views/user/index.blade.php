@@ -34,7 +34,18 @@
                                     <td>{{$user->email}}</td>
                                     <td>{{$user->created_at}}</td>
                                     <td>{{$user->updated_at}}</td>
-                                    <td><a href="{{route('user.edit', ['user' => $user->id])}}" class="btn btn-primary">修改</a></td>
+                                    <td><a href="{{route('user.edit', ['user' => $user->id])}}" class="btn btn-primary">修改</a>
+                                        @if($user->id != 1)
+                                            <a href="{{route('user.destroy', ['user' => $user->id])}}" class="btn btn-primary"
+                                                onclick="event.preventDefault();
+                                                                document.getElementById('delete_from').submit()">删除
+                                            </a>
+                                            <form id="delete_from" method="POST" action="{{route('user.destroy', ['user' => $user->id])}}" style="display: none;">
+                                                {{ csrf_field() }}
+                                                {{ method_field('DELETE') }}
+                                            </form>
+                                        @endif
+                                    </td>
                                 </tr>
                                 @endforeach
                             </tbody>
@@ -48,10 +59,12 @@
 
     <script>
 
-        @if(Request::get('success'))
-
+        @if(Request::get('update'))
             swal('修改成功','', 'success');
-
+        @elseif(Request::get('store'))
+             swal('添加成功','', 'success');
+        @elseif(Request::get('destroy'))
+              swal('删除成功','', 'success');
         @endif
     </script>
 @endsection
