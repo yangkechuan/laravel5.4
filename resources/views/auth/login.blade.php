@@ -42,11 +42,11 @@
                         </div>
                     </form>
 
-                    <p class="text-center col-xs-12">- OR -</p>
-                    <div class="text-center">
-                        <a href="{{url('register')}}"><button class="btn btn-success ">注册用户</button></a>
-                        <a href="{{url('password/reset')}}"><button class="btn btn-info">忘记密码</button></a>
-                    </div>
+                    {{--<p class="text-center col-xs-12">- OR -</p>--}}
+                    {{--<div class="text-center">--}}
+                        {{--<a href="{{url('register')}}"><button class="btn btn-success ">注册用户</button></a>--}}
+                        {{--<a href="{{url('password/reset')}}"><button class="btn btn-info">忘记密码</button></a>--}}
+                    {{--</div>--}}
 
                     <div style="margin-top: 20px">
                         @if(count($errors) > 0)
