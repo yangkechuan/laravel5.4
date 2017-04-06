@@ -11,6 +11,9 @@
 |
 */
 
+Route::get('phpinfo', function (){
+    echo phpinfo();
+});
 Route::get('/', 'HomeController@index');
 
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login');

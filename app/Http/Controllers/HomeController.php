@@ -27,6 +27,7 @@ class HomeController extends Controller
         $from = $request->header('referer');
         $apiLogCount = ApiLog::count();
         $success = ApiLog::where('status', 1)->count() / ($apiLogCount == 0 ? 1: $apiLogCount) * 100;
+        $success = sprintf("%.2f", $success);
         return view('home', compact('success', 'from'));
     }
 }
