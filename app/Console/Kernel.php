@@ -2,6 +2,8 @@
 
 namespace App\Console;
 
+use App\models\ApiLog;
+use Carbon\Carbon;
 use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Foundation\Console\Kernel as ConsoleKernel;
 
@@ -30,6 +32,10 @@ class Kernel extends ConsoleKernel
         $schedule->exec('sh /data/ngx_openresty/nginx/html/ApiTest/start.sh')->hourly()->withoutOverlapping();
         $schedule->exec('cd /data/ngx_openresty/nginx/html/laravel && envoy run web')->everyMinute()->withoutOverlapping();
         $schedule->exec('cd /data/ngx_openresty/nginx/html/laravel && envoy run api')->everyMinute()->withoutOverlapping();
+
+        $schedule->call(function (){
+            ApiLog::where('created_at', '<', Carbon::now()->addDays(-3) )->delete();
+        })->daily()->withoutOverlapping();
     }
 
     /**
