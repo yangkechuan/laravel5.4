@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\models\ApiLog;
 use Illuminate\Http\Request;
 
-class apiController extends Controller
+class LogController extends Controller
 {
 
 

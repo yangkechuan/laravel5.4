@@ -27,7 +27,7 @@ Route::post('logout', 'Auth\LoginController@logout')->name('logout');
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/api/index', 'ApiController@index')->name('api.index');
+Route::get('/log', 'LogController@index')->name('api.index');
 
 
 Route::resource('ab', 'AbController');
