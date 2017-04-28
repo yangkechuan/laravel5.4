@@ -11,9 +11,6 @@
 |
 */
 
-Route::get('phpinfo', function (){
-    echo phpinfo();
-});
 
 //预留的接口,一般不会用到
 //Auth::routes();

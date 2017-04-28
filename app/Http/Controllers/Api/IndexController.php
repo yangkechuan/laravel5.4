@@ -16,7 +16,10 @@ class IndexController extends Controller
     public function index(Request $request)
     {
         $page = $request->input('page', 1);
-        $data['list'] = ApiLog::select(['id', 'content', 'status', 'created_at'])->forPage($page, 10)->orderby('created_at', 'desc')->get();
+        $data['list'] = ApiLog::select(['id', 'content', 'status', 'created_at'])
+                                ->forPage($page, 10)
+                                ->orderby('created_at', 'desc')
+                                ->get();
 
         if (count($data['list']) == 0)
         {
